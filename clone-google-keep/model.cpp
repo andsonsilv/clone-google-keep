@@ -50,9 +50,10 @@ void Model::setNome(QString nome)
     QString id = "dev_academy";
     if(m_nome != nome) {
         QSqlQuery query(m_database->database());
-        query.prepare("INSERT OR REPLACE INTO dev_academy (id, nome) VALUES (:id, :nome)");
+        query.prepare("INSERT OR REPLACE INTO dev_academy (id, nome, email) VALUES (:id, :nome, :email)");
         query.bindValue(":id", id);
         query.bindValue(":nome", nome);
+        query.bindValue(":email", m_email);
 
         if (query.exec()) {
             m_nome = nome;
@@ -66,8 +67,9 @@ void Model::setEmail(QString email)
     QString id = "dev_academy";
     if(m_email != email) {
         QSqlQuery query(m_database->database());
-        query.prepare("INSERT OR REPLACE INTO dev_academy (id, email) VALUES (:id, :email)");
+        query.prepare("INSERT OR REPLACE INTO dev_academy (id, nome, email) VALUES (:id, :nome, :email)");
         query.bindValue(":id", id);
+        query.bindValue(":nome",m_nome);
         query.bindValue(":email", email);
 
         if (query.exec()) {

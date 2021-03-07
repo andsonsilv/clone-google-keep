@@ -9,8 +9,8 @@ Q_OBJECT
 public:
     explicit Model(QObject *parent = nullptr, Database *database = new Database());
 
-    Q_PROPERTY(QString nome READ name NOTIFY nomeChanged)
-    Q_PROPERTY(QString email READ email NOTIFY emailChange)
+    Q_PROPERTY(QString nome READ nome NOTIFY nomeChanged)
+    Q_PROPERTY(QString email READ email NOTIFY emailChanged)
     Q_PROPERTY(QString id READ id)
     QString nome();
     QString email();
