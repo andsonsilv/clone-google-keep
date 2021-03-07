@@ -28,6 +28,7 @@ Window {
             addNotaDialog.close()
         }
         onOkPressed: {
+
             dbNotas.newRow(titulo, descricao, cor, data)
             addNotaDialog.clearFields()
             addNotaDialog.close()

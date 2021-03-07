@@ -14,6 +14,7 @@ ListView {
     delegate: Card {
         height: 50
         width: parent.width
+        color: model.cor
         RowLayout {
             anchors {
                 fill: parent
@@ -45,7 +46,7 @@ ListView {
             Button {
                 Material.foreground: "white"
                 background: Rectangle {
-                    color: "#146d99"
+                    color: "#000000"
                     radius: 16
                 }
 

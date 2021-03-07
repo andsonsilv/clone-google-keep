@@ -15,9 +15,10 @@ ListView {
     delegate: Card {
         width: parent.width
         height: 64
+        color: model.cor;
         GridLayout {
             columnSpacing: 8
-            columns: 7
+            columns: parent.width/90
             anchors.fill: parent
             anchors.margins: 8
 

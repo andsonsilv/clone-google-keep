@@ -12,7 +12,6 @@ Dialog {
     x: parent.width/2 - addNotaDialog.width/2
     y: parent.height/2 - addNotaDialog.height/2
 
-
     property var notaId: ""
     signal cancelPressed()
     signal okPressed(string id, string titulo, string descricao, string cor, string data)
