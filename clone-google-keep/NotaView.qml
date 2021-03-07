@@ -17,7 +17,7 @@ ListView {
         height: 64
         GridLayout {
             columnSpacing: 8
-            columns: 5
+            columns: 7
             anchors.fill: parent
             anchors.margins: 8
 
@@ -39,6 +39,24 @@ ListView {
                 }
             }
 
+            Item {
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                Text {
+                    text: "Cor"
+                    anchors.fill: parent
+                }
+            }
+
+            Item {
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                Text {
+                    text: "Data"
+                    anchors.fill: parent
+                }
+            }
+
 
             Button {
                 Layout.rowSpan: 2
@@ -54,7 +72,9 @@ ListView {
                     const nota = {
                         id: model.id,
                         titulo: model.titulo,
-                        descricao: model.descricao
+                        descricao: model.descricao,
+                        cor: model.cor,
+                        data: model.data
                     }
                     addButtonPressed(nota)
                 }
@@ -74,6 +94,8 @@ ListView {
                     const nota = {
                         titulo: model.titulo,
                         descricao: model.descricao,
+                        cor: model.cor,
+                        data: model.data,
                         index: index,
                         id: model.id
                     }
@@ -121,7 +143,24 @@ ListView {
                     font.pixelSize: 22
                 }
             }
-
+            Item {
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                Text {
+                    text: model.cor
+                    anchors.fill: parent
+                    font.pixelSize: 22
+                }
+            }
+            Item {
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                Text {
+                    text: model.data
+                    anchors.fill: parent
+                    font.pixelSize: 22
+                }
+            }
         }
     }
 }

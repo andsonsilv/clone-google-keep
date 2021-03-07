@@ -28,7 +28,7 @@ Window {
             addNotaDialog.close()
         }
         onOkPressed: {
-            dbNotas.newRow(titulo, descricao)
+            dbNotas.newRow(titulo, descricao, cor, data)
             addNotaDialog.clearFields()
             addNotaDialog.close()
         }
@@ -41,7 +41,7 @@ Window {
             updateNotaDialog.close()
         }
         onOkPressed: {
-            dbNotas.updateRow(id, titulo, descricao)
+            dbNotas.updateRow(id, titulo, descricao, cor, data)
             updateNotaDialog.close()
         }
     }

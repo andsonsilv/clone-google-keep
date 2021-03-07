@@ -24,6 +24,12 @@ QVariant NotaListModel::data(const QModelIndex &index, int role) const
     case Descricao:
         return m_notas.at(index.row()).descricao;
         break;
+    case Cor:
+        return m_notas.at(index.row()).cor;
+        break;
+    case Data:
+        return m_notas.at(index.row()).data;
+        break;
     default:
         return QVariant();
     }
@@ -34,6 +40,8 @@ QHash<int, QByteArray> NotaListModel::roleNames() const
     QHash<int, QByteArray> roles;
     roles[Titulo] = "titulo";
     roles[Descricao] = "descricao";
+    roles[Cor] = "cor";
+    roles[Data] = "data";
     return roles;
 }
 
@@ -41,15 +49,15 @@ void NotaListModel::addNota()
 {
     beginResetModel();
     m_notas.clear();
-    m_notas.append(Nota("NOTA B", "DESCRICAO Y"));
+    m_notas.append(Nota("NOTA B", "DESCRICAO Y", "CORX","DATA1"));
 
     endResetModel();
 }
 
-void NotaListModel::insertNota(QString titulo, QString descricao)
+void NotaListModel::insertNota(QString titulo, QString descricao, QString cor, QString data)
 {
     beginInsertRows(QModelIndex(), rowCount(), rowCount());
-    m_notas.append(Nota(titulo, descricao));
+    m_notas.append(Nota(titulo, descricao, cor, data));
     endInsertRows();
 }
 

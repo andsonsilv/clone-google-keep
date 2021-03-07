@@ -29,8 +29,19 @@ ListView {
             Text {
                 Layout.fillWidth: true
                 text: model.descricao
-//                horizontalAlignment: Text.AlignRight
+                //horizontalAlignment: Text.AlignRight
             }
+
+//            Text {
+//                Layout.fillWidth: true
+//                text: model.cor
+//            }
+
+//            Text {
+//                Layout.fillWidth: true
+//                text: model.data
+//            }
+
             Button {
                 Material.foreground: "white"
                 background: Rectangle {

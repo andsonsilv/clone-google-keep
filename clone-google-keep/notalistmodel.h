@@ -11,7 +11,10 @@ class NotaListModel : public QAbstractListModel
 public:
     enum Roles {
         Titulo = Qt::UserRole + 1,
-        Descricao
+        Descricao,
+        Cor,
+        Data
+
     };
     Q_ENUM(Roles)
 
@@ -23,7 +26,7 @@ public:
     static void registerTypes();
 
 public slots:
-    void insertNota(QString titulo, QString descricao);
+    void insertNota(QString titulo, QString descricao, QString cor, QString data);
     void removeNota(int index);
 
 private:

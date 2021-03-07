@@ -15,17 +15,21 @@ Dialog {
 
     property var notaId: ""
     signal cancelPressed()
-    signal okPressed(string id, string titulo, string descricao)
+    signal okPressed(string id, string titulo, string descricao, string cor, string data)
 
     function clearFields() {
         tituloField.clear()
         descricaoField.clear()
+        corField.clear()
+        dataField.clear()
     }
 
     function setFields(nota) {
         notaId = nota.id
         tituloField.text = nota.titulo
         descricaoField.text = nota.descricao
+        corField.text = nota.cor
+        dataField.text = nota.data
     }
 
     ColumnLayout {
@@ -36,6 +40,16 @@ Dialog {
         TextField{
             id: descricaoField
             placeholderText: "Descricao"
+//            validator: RegExpValidator { regExp: /[0-9]*/ }
+        }
+        TextField{
+            id: corField
+            placeholderText: "Cor"
+//            validator: RegExpValidator { regExp: /[0-9]*/ }
+        }
+        TextField{
+            id: dataField
+            placeholderText: "Data"
 //            validator: RegExpValidator { regExp: /[0-9]*/ }
         }
 //        TextField{
@@ -57,11 +71,13 @@ Dialog {
                 flat: true
                 Material.foreground: "#146d99"
                 enabled: (!tituloField.text == ""
-                          && !descricaoField.text == "")
-//                          && priceField.text.split(".")[1] != "")
+                          && !descricaoField.text == ""
+                          && !corField.text == ""
+                          && !dataField.text == "")
+//                          && !corField.text.split(".")[1] != "")
 
                 onPressed: {
-                    okPressed(notaId, tituloField.text, descricaoField.text) /*Number(priceField.text), Number(calorieField.text))*/
+                    okPressed(notaId, tituloField.text, descricaoField.text, corField.text, dataField.text) /*Number(priceField.text), Number(calorieField.text))*/
                 }
             }
         }

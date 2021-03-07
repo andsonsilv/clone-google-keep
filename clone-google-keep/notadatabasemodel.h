@@ -10,7 +10,9 @@ public:
     enum Roles {
         Id = Qt::UserRole + 1,
         Titulo,
-        Descricao
+        Descricao,
+        Cor,
+        Data
     };
     Q_ENUM(Roles)
     explicit NotaDatabaseModel(QObject *parent = nullptr, Database *database = new Database());
@@ -19,8 +21,8 @@ public:
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
     //void setData(const QModelIndex &index, const QVariant &value, int role) const override;
 
-    Q_INVOKABLE void newRow(QString titulo, QString descricao);
-    Q_INVOKABLE void updateRow(QString id, QString titulo, QString descricao);
+    Q_INVOKABLE void newRow(QString titulo, QString descricao, QString cor, QString data);
+    Q_INVOKABLE void updateRow(QString id, QString titulo, QString descricao, QString cor, QString data);
     Q_INVOKABLE void deleteRow(QString id);
 
     Q_INVOKABLE QHash<int, QByteArray> roleNames() const;

@@ -20,6 +20,8 @@ void NotaDatabaseModel::configureRoles()
     registerRoleColumn(Id, "id");
     registerRoleColumn(Titulo, "titulo");
     registerRoleColumn(Descricao, "descricao");
+    registerRoleColumn(Cor,"cor");
+    registerRoleColumn(Data,"data");
 }
 
 QHash<int, QByteArray> NotaDatabaseModel::roleNames() const
@@ -42,31 +44,35 @@ QVariant NotaDatabaseModel::data(const QModelIndex &index, int role) const
     return QVariant();
 }
 
-void NotaDatabaseModel::newRow(QString titulo, QString descricao)
+void NotaDatabaseModel::newRow(QString titulo, QString descricao, QString cor, QString data)
 {
     QString id = QUuid().createUuid().toString().replace("{", "").replace("}", "");
     QSqlQuery insertQuery(QSqlTableModel::database());
     insertQuery.prepare(
-                "insert into nota(id, titulo, descricao) "
-                "VALUES (:id, :titulo, :descricao) "
+                "insert into nota(id, titulo, descricao, cor, data) "
+                "VALUES (:id, :titulo, :descricao, :cor, :data) "
     );
     insertQuery.bindValue(":id", id);
     insertQuery.bindValue(":titulo", titulo);
     insertQuery.bindValue(":descricao", descricao);
+    insertQuery.bindValue(":cor", cor);
+    insertQuery.bindValue(":data", data);
     insertQuery.exec();
     select();
 }
 
-void NotaDatabaseModel::updateRow(QString id, QString titulo, QString descricao)
+void NotaDatabaseModel::updateRow(QString id, QString titulo, QString descricao, QString cor, QString data)
 {
     QSqlQuery updateQuery(QSqlTableModel::database());
     updateQuery.prepare(
-                "update nota set titulo = :titulo, descricao = :descricao "
+                "update nota set titulo = :titulo, descricao = :descricao , cor = :cor, data = :data "
                 "where id = :id"
     );
     updateQuery.bindValue(":id", id);
     updateQuery.bindValue(":titulo", titulo);
     updateQuery.bindValue(":descricao", descricao);
+    updateQuery.bindValue(":cor", cor);
+    updateQuery.bindValue(":data", data);
     updateQuery.exec();
     select();
 }
