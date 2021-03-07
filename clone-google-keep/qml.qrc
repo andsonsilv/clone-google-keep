@@ -7,9 +7,9 @@
         <file>AddNotaDialog.qml</file>
         <file>CarrinhoView.qml</file>
         <file>NotaView.qml</file>
-        <file>icons/adicionar.png</file>
         <file>icons/carrinho.png</file>
         <file>icons/editar.png</file>
         <file>icons/remover.png</file>
+        <file>icons/adicionar.png</file>
     </qresource>
 </RCC>
