@@ -1,5 +1,15 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
+        <file>qtquickcontrols2.conf</file>
+        <file>Card.qml</file>
+        <file>RemoveNotaDialog.qml</file>
+        <file>AddNotaDialog.qml</file>
+        <file>CarrinhoView.qml</file>
+        <file>NotaView.qml</file>
+        <file>icons/adicionar.png</file>
+        <file>icons/carrinho.png</file>
+        <file>icons/editar.png</file>
+        <file>icons/remover.png</file>
     </qresource>
 </RCC>
