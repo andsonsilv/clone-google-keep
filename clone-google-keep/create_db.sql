@@ -7,7 +7,7 @@ CREATE TABLE nota (
 CREATE TABLE dev_academy (
     id    TEXT PRIMARY KEY,
     nome  TEXT,
-    senha TEXT
+    email TEXT
 );
 
 INSERT INTO nota(id, titulo, descricao) VALUES ('1', 'titulo1', 'nota1');

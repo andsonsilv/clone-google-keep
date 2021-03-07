@@ -41,7 +41,7 @@ void NotaListModel::addNota()
 {
     beginResetModel();
     m_notas.clear();
-    m_notas.append(Nota("Abacaxi", "5.50"));
+    m_notas.append(Nota("NOTA B", "DESCRICAO Y"));
 
     endResetModel();
 }

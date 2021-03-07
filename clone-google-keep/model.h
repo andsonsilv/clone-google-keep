@@ -9,16 +9,24 @@ Q_OBJECT
 public:
     explicit Model(QObject *parent = nullptr, Database *database = new Database());
 
-    Q_PROPERTY(QString name READ name NOTIFY nameChanged)
+    Q_PROPERTY(QString nome READ name NOTIFY nomeChanged)
+    Q_PROPERTY(QString email READ email NOTIFY emailChange)
     Q_PROPERTY(QString id READ id)
-    QString name();
+    QString nome();
+    QString email();
     QString id();
-    Q_INVOKABLE void setName(QString name);
+
+
+    Q_INVOKABLE void setNome(QString nome);
+    Q_INVOKABLE void setEmail(QString email);
+
 
 signals:
-    void nameChanged(QString name);
+    void nomeChanged(QString nome);
+    void emailChanged(QString email);
 private:
-    QString m_name;
+    QString m_nome;
+    QString m_email;
     QString m_id;
     Database *m_database;
 };

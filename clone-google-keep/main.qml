@@ -67,19 +67,19 @@ Window {
         RowLayout {
             Layout.fillWidth: true
             Text {
-                text: `Carrinho do ${myModel.name}`
+                text: `Carrinho do ${myModel.nome}`
                 Layout.fillWidth: true
                 font.pixelSize: 20
             }
             TextField {
-                id: nameField
+                id: nomeField
             }
             Button {
-                text: "Salvar"
-                enabled: nameField != ""
+                text: "Salvar nome"
+                enabled: nomeField != ""
                 onPressed: {
-                    if(nameField != "") {
-                        myModel.setName(nameField.text, myModel.id)
+                    if(nomeField != "") {
+                        myModel.setNome(nomeField.text, myModel.id)
                     }
                 }
             }
@@ -88,19 +88,19 @@ Window {
         RowLayout {
             Layout.fillWidth: true
             Text {
-                text: `Email: ${myModel.name}`
+                text: `Email ${myModel.email}`
                 Layout.fillWidth: true
                 font.pixelSize: 20
             }
             TextField {
-                id: name2Field
+                id: emailField
             }
             Button {
-                text: "Salvar"
-                enabled: name2Field != ""
+                text: "Salvar email"
+                enabled: emailField != ""
                 onPressed: {
-                    if(name2Field != "") {
-                        myModel.setName(name2Field.text, myModel.id)
+                    if(emailField != "") {
+                        myModel.setEmail(emailField.text, myModel.id)
                     }
                 }
             }
